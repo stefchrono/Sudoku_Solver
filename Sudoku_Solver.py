@@ -1,4 +1,3 @@
-import pandas as pd
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select
@@ -7,20 +6,14 @@ import time
 driver = webdriver.Chrome(r"/Users/StefChrono/Downloads/chromedriver") #open_chrome
 driver.maximize_window() #maximize_window
 driver.get('https://sudoku.com')
-
 time.sleep(1)
 dropdown = driver.find_element_by_class_name('difficulty-label')
 dropdown.click()
-
 time.sleep(1)
-
 select_lvl_exp = driver.find_element_by_xpath('/html/body/div[1]/div/div[1]/div[1]/div[1]/div[2]/div[2]/ul/li[4]/a')
 select_lvl_exp.click()
-
 time.sleep(2)
-
 table = driver.find_elements_by_css_selector("table.game-table tbody tr")
-
 time.sleep(2)
 
 table_data = {
@@ -40,9 +33,7 @@ table_data = {
 pre_df = []
 
 for row in table:
-
     rows = row.find_elements_by_xpath(".//td[contains(@class, 'game-cell')]")
-
     for little_row in rows:
         if str(little_row.get_attribute("class")) == 'game-cell':
             pre_df.append(0)
@@ -55,8 +46,6 @@ for row in table:
                         pre_df.append(number)
 
 chunks = [pre_df[x:x+9] for x in range(0, len(pre_df), 9)]
-
-print (chunks)
 
 #######################################################################
 
@@ -78,8 +67,6 @@ def Solve(Sudo):
 
     return False
 
-
-
 def Validation(Sudo, number, position):
     for i in range(len(Sudo)):
         if Sudo[i][position[1]] == number and position[0] != i:
@@ -97,8 +84,6 @@ def Validation(Sudo, number, position):
             if Sudo[i][j] == number and (i, j) != position:
                 return False
     return True
-
-
 
 def CheckForEmpty(Sudo):
     for i in range(len(Sudo)):
