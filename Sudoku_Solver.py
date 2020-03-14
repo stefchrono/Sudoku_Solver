@@ -64,7 +64,6 @@ def Solve(Sudo):
                 return True
 
             Sudo[row][col] = 0
-
     return False
 
 def Validation(Sudo, number, position):
@@ -90,12 +89,10 @@ def CheckForEmpty(Sudo):
         for j in range(len(Sudo[0])):
             if Sudo[i][j] == 0:
                 return (i, j)
-
     return None
 
 
 original = list(map(list, chunks))
-
 Solve(chunks)
 print(chunks)
 
