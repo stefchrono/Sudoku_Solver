@@ -1,5 +1,5 @@
 # Sudoku_Solver
-This is an implementation of a backtracking algorithm implemented on Sudoku puzzles.
+This is an implementation of a backtracking algorithm showcased on Sudoku puzzles.
 
 I have used Selenium to access Sudoku.com and to build an intelligent way of parsing sudoku table cell values, through html anchors, tags etc.
 
