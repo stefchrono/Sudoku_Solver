@@ -100,7 +100,7 @@ numpad = driver.find_elements_by_class_name("numpad-item")
 total_cells = driver.find_elements_by_class_name("game-cell")
 
 for row_number, row_values in enumerate(original):
-        for row_value_position, actual_value in enumerate(row_values):
-            if actual_value == 0:
-                total_cells[row_number*9 + row_value_position].click()
-                numpad[chunks[row_number][row_value_position] - 1].click()
+    for row_value_position, actual_value in enumerate(row_values):
+        if actual_value == 0:
+            total_cells[row_number*9 + row_value_position].click()
+            numpad[chunks[row_number][row_value_position] - 1].click()
